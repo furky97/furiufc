@@ -2,43 +2,33 @@ import pandas as pd
 import random
 import matplotlib.pyplot as plt
 import seaborn as sns
-import time
 
 # List of players
 players = [
-    "Seyiito",
-    "alpi",
-    "thegame2612",
-    "Tahir_UFC",
-    "Atilla",
-    "Freezy",
-    "Edmir04", 
+    "Freezy", 
     "Process", 
-    "Ronaldinho",
-    "Rebell",
-    "Lahana Turşusu", 
-    "FuritoraUFC",
-    "zBuschZigo",
+    "MuhammedAli", 
+    "TahirUFC",
     "Zem01",
+    "Rickslick",
+    "Simouny",
+    "Rebell",
     ]
 
 # List of weight classes
 weightClasses = [
-    "Heavyweight", 
-    "Light Heavyweight", 
+    # "Heavyweight", 
+    # "Light Heavyweight", 
     "Middleweight", 
     "Welterweight", 
     "Lightweight",
     "Featherweight", 
     "Bantamweight", 
-    "Flyweight", 
+    # "Flyweight", 
     # "Bantamweight (W)", 
     # "Flyweight (W)", 
     # "Strawweight (W)"
 ]
-
-# Randomize players and weight classes
-random.shuffle(players)
 
 # Create pairs of players and match weight classes
 fight_card = []
@@ -49,7 +39,6 @@ for i in range(len(players) // 2):
 
 # Create a DataFrame for display
 fight_card_df = pd.DataFrame(fight_card, columns=["Player 1", "Player 2", "Weight Class"])
-print(fight_card_df)
 
 # Set up the matplotlib figure
 fig, ax = plt.subplots(figsize=(8, 3))  # Set the size of the figure
@@ -87,4 +76,4 @@ for j in range(len(fight_card_df.columns)):
     cell.set_facecolor('#40466e')
 
 # Save the figure as an image
-plt.savefig('ffl-' + time.strftime("%Y%m%d-%H%M%S") + '.png', bbox_inches='tight', dpi=300)
+plt.savefig('fightcard.png', bbox_inches='tight', dpi=300)
