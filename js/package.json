@@ -1,0 +1,15 @@
+{
+  "name": "furiufc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pandas-js": "^0.2.4",
+    "puppeteer": "^23.2.0"
+  }
+}
