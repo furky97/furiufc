@@ -5,29 +5,30 @@ const path = require('path');
 // List of players
 const players = [
     "Seyiito",
-    // "alpi",
-    "wurstfinger",
+    "Freezy",
+    "Adam",
+    "alpi",
     "RushMMA",
     "Arezmaa",
     "thegame2612",
+    "AlpiQLF",
     "Tahir_UFC",
-    // "Atilla",
-    "Freezy",
-    "Edmir04", 
-    "Process", 
     "Ronaldinho",
+    "Edmir04", 
+    "ANNOYIING",
     "Rebell",
-    "Adam",
-    "Lahana Turşusu", 
-    "FuriUFC",
+    // "Bronxs_MMA",
     "zBuschZigo",
     "Zem01",
+    "Simouney",
+    "Lahana Turşusu", 
+    "FuriUFC",
 ];
 
 // List of weight classes
 const weightClasses = [
     "Heavyweight", 
-    "Light Heavyweight", 
+    "Light Heavyweight",
     "Middleweight", 
     "Welterweight", 
     "Lightweight",
@@ -49,7 +50,7 @@ function shuffleArray(array) {
 }
 
 // Shuffle players and match them with weight classes
-shuffleArray(players);
+// shuffleArray(players);
 const fightCard = [];
 for (let i = 0; i < players.length / 2; i++) {
     fightCard.push({
