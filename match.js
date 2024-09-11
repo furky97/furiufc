@@ -4,25 +4,25 @@ const path = require('path');
 
 // List of players
 const players = [
-    "Seyiito",
+    "Ronaldinho",
+    "Arezmaa",
     "Freezy",
     "Adam",
+    "Seyiito",
     "alpi",
-    "RushMMA",
-    "Arezmaa",
-    "thegame2612",
-    "AlpiQLF",
-    "Tahir_UFC",
-    "Ronaldinho",
-    "Edmir04", 
-    "ANNOYIING",
     "Rebell",
+    "Tahir_UFC",
+    "RushMMA",
+    "thegame2612",
+    // "AlpiQLF",
     // "Bronxs_MMA",
-    "zBuschZigo",
+    "ANNOYIING",
     "Zem01",
-    "Simouney",
-    "Lahana Turşusu", 
-    "FuriUFC",
+    "Simouny",
+    "zBuschZigo",
+    "Lahana Turşusu",
+    "Edmir04", 
+    // "FuriUFC",
 ];
 
 // List of weight classes
