@@ -2,6 +2,33 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
+// Sample data
+const data = {
+  rankings: [
+    { player: 'ZemO1', wins: 5, draws: 0, losses: 0 },
+    { player: 'Tahir_UFC', wins: 4, draws: 0, losses: 1 },
+    { player: 'Lahana Tursusu', wins: 3, draws: 0, losses: 2 },
+    // { player: 'PROCESS', wins: 2, draws: 0, losses: 0 },
+    { player: 'zBuschZigo', wins: 3, draws: 0, losses: 1 },
+    { player: 'FuriUFC', wins: 3, draws: 0, losses: 0 },
+    { player: 'Edmir04', wins: 3, draws: 0, losses: 2 },
+    { player: 'zFreezy', wins: 1, draws: 0, losses: 3 },
+    { player: 'thegame2621', wins: 1, draws: 0, losses: 3 },
+    { player: 'Ronaldinho', wins: 0, draws: 0, losses: 4 },
+    { player: 'Bronxs_MMA', wins: 0, draws: 0, losses: 2 },
+    { player: 'Rebell', wins: 3, draws: 0, losses: 1 },
+    // { player: 'Atilla', wins: 0, draws: 0, losses: 1 },
+    { player: 'Adam', wins: 0, draws: 0, losses: 3 },
+    { player: 'Arezmaa', wins: 2, draws: 0, losses: 1 },
+    { player: 'RushMMA', wins: 1, draws: 0, losses: 2 },
+    { player: 'Seyiito', wins: 2, draws: 0, losses: 2 },
+    { player: 'alpi', wins: 1, draws: 0, losses: 3 },
+    { player: 'AlpiQLF', wins: 0, draws: 0, losses: 1 },
+    { player: 'ANNOYIING', wins: 1, draws: 0, losses: 1 },
+    { player: 'Simouny', wins: 0, draws: 0, losses: 2 },
+  ],
+};
+
 // Function to generate HTML content
 function generateHTMLTable(data) {
   const tableRows = data
@@ -108,33 +135,6 @@ function rank(data) {
 
   return rankedPlayers;
 }
-
-// Sample data
-const data = {
-  rankings: [
-    { player: 'ZEMO1', wins: 4, draws: 0, losses: 0 },
-    { player: 'TAHIR_UFC', wins: 4, draws: 0, losses: 0 },
-    { player: 'LAHANA TURSUSU', wins: 3, draws: 0, losses: 1 },
-    // { player: 'PROCESS', wins: 2, draws: 0, losses: 0 },
-    { player: 'ZBUSCHZIGO', wins: 2, draws: 0, losses: 1 },
-    { player: 'FURIUFC', wins: 3, draws: 0, losses: 0 },
-    { player: 'EDMIRO4', wins: 2, draws: 0, losses: 2 },
-    { player: 'FREEZY', wins: 0, draws: 0, losses: 3 },
-    { player: 'THEGAME2621', wins: 1, draws: 0, losses: 2 },
-    { player: 'RONALDINHO', wins: 0, draws: 0, losses: 3 },
-    { player: 'BRONXS_MMA', wins: 0, draws: 0, losses: 2 },
-    { player: 'REBELL', wins: 2, draws: 0, losses: 1 },
-    { player: 'ATILLA', wins: 0, draws: 0, losses: 1 },
-    { player: 'ADAM', wins: 0, draws: 0, losses: 2 },
-    { player: 'AREZMAA', wins: 1, draws: 0, losses: 1 },
-    { player: 'RUSHMMA', wins: 0, draws: 0, losses: 2 },
-    { player: 'SEYIITO', wins: 1, draws: 0, losses: 2 },
-    { player: 'ALPI', wins: 1, draws: 0, losses: 2 },
-    { player: 'ALPIQLF', wins: 0, draws: 0, losses: 1 },
-    { player: 'ANNOYIING', wins: 1, draws: 0, losses: 0 },
-    { player: 'SIMOUNY', wins: 0, draws: 0, losses: 1 },
-  ],
-};
 
 // Generate HTML table from ranked players
 const rankedPlayers = rank(data);
