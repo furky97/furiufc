@@ -4,22 +4,22 @@ const path = require('path');
 const ffl = '<span>FFL - 008</span>';
 // List of players
 const players = [
-  'Edmir04',
-  'Seyiito',
-  'ANNOYIING',
-  'Arezmaa',
-  'Freezy',
+  'Rebell',
   'Carnalito61',
   'Zem01',
-  'RushMMA',
-  'djamil',
+  'Poatan209',
+  'ANNOYIING',
+  'Edmir04',
+  'Lahana Turşusu',
+  'Arezmaa',
   'Simouny',
   'alpi',
-  'Lahana Turşusu',
-  'Bronxs_MMA',
-  'Tahir_UFC',
-  'Rebell',
-  'FuriUFC',
+  'Freezy',
+  'thegame2621',
+  // 'Seyiito',
+  // 'Bronxs_MMA',
+  // 'RushMMA',
+  // 'FuriUFC',
 ];
 
 // List of weight classes
@@ -128,12 +128,11 @@ function generateHTMLTable(mainCard, prelims, championship) {
                 table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: white; border-radius: 10px;}
                 th, td { padding: 15px; text-align: center; }
                 tr:hover { background-color: #eaeaea; }
-                caption { font-size: 2em; margin-bottom: 10px; font-weight: bold; color: #333; font-family: 'Lobster', cursive; text-transform: uppercase; }
                 td { font-weight: bold; font-size: 1.2em; }
                 .header { background-color: #333; color: white; text-align: center; padding: 20px; font-size: 2.5em; text-transform: uppercase; font-family: 'Lobster', cursive; font-style: italic; }
-                .title-card { font-weight: bold; font-size: 2.2em; text-align: center; margin-top: 20px; background-color: #cc9900; color: black; text-transform: uppercase; padding: 10px; border-radius: 10px;}
-                .main-card { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #cc0000; color: white; text-transform: uppercase; padding: 10px; border-radius: 10px;}
-                .prelims-card { font-weight: bold; font-size: 1.0em; text-align: center; margin-top: 20px; background-color: #333; color: white; text-transform: uppercase; padding: 10px; border-radius: 10px;}
+                .title-card { font-weight: bold; font-size: 2.2em; text-align: center; margin-top: 20px; background-color: #cc9900; color: black; padding: 10px; border-radius: 10px;}
+                .main-card { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #cc0000; color: white; padding: 10px; border-radius: 10px;}
+                .prelims-card { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #333; color: white; padding: 10px; border-radius: 10px;}
                 .footer { text-align: center; margin-top: 20px; font-size: 1.2em; color: #333; }
             </style>
         </head>
