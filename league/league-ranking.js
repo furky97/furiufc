@@ -7,7 +7,7 @@ const data = {
   rankings: [
     { player: 'ZemO1', wins: 5, draws: 0, losses: 2 },
     // { player: 'Tahir_UFC', wins: 4, draws: 0, losses: 3 },
-    { player: 'Lahana Tursusu', wins: 4, draws: 0, losses: 2 },
+    { player: 'Lahana Tursusu', wins: 5, draws: 0, losses: 2 },
     // { player: 'PROCESS', wins: 2, draws: 0, losses: 0 },
     // { player: 'zBuschZigo', wins: 3, draws: 0, losses: 2 },
     { player: 'FuriUFC', wins: 3, draws: 0, losses: 1 },
@@ -24,7 +24,7 @@ const data = {
     { player: 'Arezmaa', wins: 3, draws: 0, losses: 2 },
     { player: 'RushMMA', wins: 2, draws: 0, losses: 3 },
     { player: 'Seyiito', wins: 2, draws: 0, losses: 4 },
-    { player: 'alpi', wins: 1, draws: 0, losses: 4 },
+    { player: 'alpi', wins: 1, draws: 0, losses: 5 },
     // { player: 'AlpiQLF', wins: 0, draws: 0, losses: 1 },
     { player: 'ANNOYIING', wins: 3, draws: 0, losses: 1 },
     { player: 'Simouny', wins: 1, draws: 0, losses: 3 },
