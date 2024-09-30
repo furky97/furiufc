@@ -1,33 +1,32 @@
 const puppeteer = require('puppeteer');
-const fs = require('fs');
 const path = require('path');
 
 // Sample data
 const data = {
   rankings: [
-    { player: 'ZemO1', wins: 5, draws: 0, losses: 2 },
-    // { player: 'Tahir_UFC', wins: 4, draws: 0, losses: 3 },
+    { player: 'Rebell', wins: 5, draws: 0, losses: 1 },
+    { player: 'Zem01', wins: 5, draws: 0, losses: 2 },
+    { player: 'Edmir04', wins: 5, draws: 0, losses: 2 },
     { player: 'Lahana Tursusu', wins: 4, draws: 0, losses: 2 },
+    { player: 'FuriUFC', wins: 3, draws: 0, losses: 1 },
+    { player: 'ANNOYIING', wins: 3, draws: 0, losses: 1 },
+    { player: 'Arezmaa', wins: 3, draws: 0, losses: 2 },
+    { player: 'Carnalito61', wins: 1, draws: 0, losses: 0 },
+    { player: 'Bronxs_MMA', wins: 2, draws: 0, losses: 2 },
+    { player: 'RushMMA', wins: 2, draws: 0, losses: 3 },
+    { player: 'zFreezy', wins: 2, draws: 0, losses: 4 },
+    { player: 'Seyiito', wins: 2, draws: 0, losses: 4 },
+    { player: 'thegame2621', wins: 1, draws: 0, losses: 3 },
+    { player: 'Simouny', wins: 1, draws: 0, losses: 3 },
+    { player: 'alpi', wins: 1, draws: 0, losses: 4 },
+    { player: 'Ronaldinho', wins: 0, draws: 0, losses: 4 },
+    // { player: 'Tahir_UFC', wins: 4, draws: 0, losses: 3 },
     // { player: 'PROCESS', wins: 2, draws: 0, losses: 0 },
     // { player: 'zBuschZigo', wins: 3, draws: 0, losses: 2 },
-    { player: 'FuriUFC', wins: 3, draws: 0, losses: 1 },
-    { player: 'Edmir04', wins: 5, draws: 0, losses: 2 },
-    { player: 'zFreezy', wins: 2, draws: 0, losses: 4 },
-    { player: 'thegame2621', wins: 1, draws: 0, losses: 3 },
-    { player: 'Ronaldinho', wins: 0, draws: 0, losses: 4 },
-    { player: 'Bronxs_MMA', wins: 2, draws: 0, losses: 2 },
-    { player: 'Rebell', wins: 5, draws: 0, losses: 1 },
     // { player: 'djamil', wins: 0, draws: 0, losses: 1 },
-    { player: 'Carnalito61', wins: 1, draws: 0, losses: 0 },
     // { player: 'Atilla', wins: 0, draws: 0, losses: 1 },
     // { player: 'Adam', wins: 0, draws: 0, losses: 3 },
-    { player: 'Arezmaa', wins: 3, draws: 0, losses: 2 },
-    { player: 'RushMMA', wins: 2, draws: 0, losses: 3 },
-    { player: 'Seyiito', wins: 2, draws: 0, losses: 4 },
-    { player: 'alpi', wins: 1, draws: 0, losses: 4 },
     // { player: 'AlpiQLF', wins: 0, draws: 0, losses: 1 },
-    { player: 'ANNOYIING', wins: 3, draws: 0, losses: 1 },
-    { player: 'Simouny', wins: 1, draws: 0, losses: 3 },
   ],
 };
 
@@ -35,15 +34,13 @@ const data = {
 function generateHTMLTable(data) {
   const tableRows = data
     .map(
-      (player) => `
-        <tr>
-            <td>${player.Pos}</td>
-            <td style="font-weight: bold; font-size: 1.1em;">${player.Player}</td>
+      (player, index) => `
+        <tr style="${index === 0 ? 'background-color: gold; font-weight: bold;' : ''}">
+            <td style="font-weight: bold; font-size: 1.1em;">${index === 0 ? 'Champ' : player.Pos}</td>
+            <td>${player.Player}</td>
             <td>${player.Wins}</td>
             <td>${player.Draws}</td>
             <td>${player.Losses}</td>
-            <td>${player['Diff (W-L)']}</td>
-            <td>${player.Total}</td>
             <td>${player['Win Rate (%)']}</td>
         </tr>
     `
@@ -74,8 +71,6 @@ function generateHTMLTable(data) {
                         <th>Wins</th>
                         <th>Draws</th>
                         <th>Losses</th>
-                        <th>Diff (W-L)</th>
-                        <th>Total</th>
                         <th>Win Rate (%)</th>
                     </tr>
                 </thead>
@@ -92,7 +87,6 @@ function generateHTMLTable(data) {
 function rank(data) {
   const rankedPlayers = data.rankings.map((player) => {
     const totalMatches = player.wins + player.draws + player.losses;
-    const winLossDiff = player.wins - player.losses;
     const winRate = totalMatches > 0 ? Math.floor((player.wins / totalMatches) * 100) : 0;
 
     return {
@@ -100,39 +94,12 @@ function rank(data) {
       Wins: player.wins,
       Draws: player.draws,
       Losses: player.losses,
-      'Diff (W-L)': winLossDiff,
-      Total: totalMatches,
-      'Win Rate (%)': winRate,
+      'Win Rate (%)': winRate + '%',
     };
   });
 
-  rankedPlayers.sort((a, b) => {
-    if (b['Diff (W-L)'] !== a['Diff (W-L)']) {
-      return b['Diff (W-L)'] - a['Diff (W-L)'];
-    } else {
-      return b.Total - a.Total;
-    }
-  });
-
-  let currentPosition = 1;
   rankedPlayers.forEach((player, index) => {
-    if (index > 0) {
-      const previousPlayer = rankedPlayers[index - 1];
-      if (
-        player.Wins === previousPlayer.Wins &&
-        player.Draws === previousPlayer.Draws &&
-        player.Losses === previousPlayer.Losses &&
-        player['Diff (W-L)'] === previousPlayer['Diff (W-L)'] &&
-        player.Total === previousPlayer.Total
-      ) {
-        player.Pos = currentPosition;
-      } else {
-        currentPosition += 1;
-        player.Pos = currentPosition;
-      }
-    } else {
-      player.Pos = currentPosition;
-    }
+    player.Pos = index;
   });
 
   return rankedPlayers;
