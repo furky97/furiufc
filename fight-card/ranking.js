@@ -66,7 +66,7 @@ function generateHTMLTable(data) {
                 font-family: 'Roboto Slab', Arial, sans-serif;
                 margin: 0;
                 padding: 20px;
-                background-color: #f9f9f9;
+                background: linear-gradient(90deg, rgba(245,227,227,1) 0%, rgba(210,214,215,1) 100%);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -83,7 +83,7 @@ function generateHTMLTable(data) {
             .ffl-header {
                 font-family: 'Roboto Slab', Arial, sans-serif;
                 font-size: 5rem;
-                color: #333;
+                color: white;
                 font-weight: bold;
                 text-align: center;
             }
@@ -169,7 +169,7 @@ function generateHTMLTable(data) {
         </head>
         <body>
             <div class="header-section">
-              <h1 class="ffl-header">Rangliste</h1>
+              <h1 class="ffl-header">Leaderboards</h1>
             </div>
             ${championCard}
             ${otherPlayers}
