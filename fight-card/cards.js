@@ -4,6 +4,7 @@ const path = require('path');
 const ffl = '<span>FFL - 008</span>';
 // List of players
 const players = [
+  'Edmir04',
   'Seyiito',
   'ANNOYIING',
   'Arezmaa',
@@ -12,7 +13,6 @@ const players = [
   'Zem01',
   'RushMMA',
   'djamil',
-  'Edmir04',
   'Simouny',
   'alpi',
   'Lahana Turşusu',
@@ -88,7 +88,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
 
   const championshipRow = `
         <tr>
-            <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 1']} <span style="color: #d4af37; font-size: 1.1em;">(C)</span></td>
+            <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 1']} <span style="background-color: #d4af37; color: white; font-size: 1.1em; padding: 0 4px;">C</span></td>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">vs</td>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 2']}</td>
             <td style="font-size: 1.5em; font-weight: bold; color: #333; text-transform: uppercase;">${championship['Weight Class']}</td>

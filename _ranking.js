@@ -30,6 +30,19 @@ const data = {
   ],
 };
 
+const contenders = data.splice(1)
+.map(
+  (fight) => `
+    <tr>
+        <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
+        <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
+        <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 2']}</td>
+        <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
+    </tr>
+`
+)
+.join('');
+
 // Function to generate HTML content
 function generateHTMLTable(data) {
   const tableRows = data
@@ -51,33 +64,61 @@ function generateHTMLTable(data) {
         <html>
         <head>
             <style>
-                body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: center; }
-                th { background-color: #f44336; color: white; }
-                tr:nth-child(even) { background-color: #f2f2f2; }
-                tr:hover { background-color: #ddd; }
-                caption { font-size: 1.8em; margin-bottom: 10px; font-weight: bold; color: #f44336; }
-                td:nth-child(2) { font-weight: bold; font-size: 1.1em; }
+                @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Lobster&display=swap');
+                header-section {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background-color: #000; /* Black background */
+                }
+
+                .ffl-header {
+                    margin-top: 0;
+                    margin-left: 25%;
+                    margin-bottom: 0;
+                    font-family: 'Arial Black', sans-serif; /* Bold font style */
+                    font-size: 5rem; /* Large font size */
+                    color: #b30000; /* UFC Red color */
+                    letter-spacing: -0.05em; /* Tight letter spacing */
+                    text-transform: uppercase; /* Make sure all letters are uppercase */
+                    font-weight: bold; /* Extra bold text */
+                    padding: 5px 5px; /* Space inside the border */
+                    display: inline-block;
+                    transform: skew(-15deg); /* Create an angular skew effect */
+                }
+
+	  
+                body { font-family: 'Roboto Slab', Arial, sans-serif; margin: 0; padding: 20px; background-color: #f0f0f0; }
+                table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: white; border-radius: 10px;}
+                th, td { padding: 15px; text-align: center; }
+                tr:hover { background-color: #eaeaea; }
+                caption { font-size: 2em; margin-bottom: 10px; font-weight: bold; color: #333; font-family: 'Lobster', cursive; text-transform: uppercase; }
+                td { font-weight: bold; font-size: 1.2em; }
+                .header { background-color: #333; color: white; text-align: center; padding: 20px; font-size: 2.5em; text-transform: uppercase; font-family: 'Lobster', cursive; font-style: italic; }
+                .champ { font-weight: bold; font-size: 2.2em; text-align: center; margin-top: 20px; background-color: #cc9900; color: black; text-transform: uppercase; padding: 10px; border-radius: 10px;}
+                .contenders { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #cc0000; color: white; text-transform: uppercase; padding: 10px; border-radius: 10px;}
+                .footer { text-align: center; margin-top: 20px; font-size: 1.2em; color: #333; }
             </style>
         </head>
         <body>
+            <div class="header-section">
+              <h1 class="ffl-header">FFL - Rankings</h1>
+            </div>
+            <div class="champ">Champ</div>
             <table>
-                <caption>FFL Season 01 - Rangliste</caption>
-                <thead>
-                    <tr>
-                        <th>Pos</th>
-                        <th>Player</th>
-                        <th>Wins</th>
-                        <th>Draws</th>
-                        <th>Losses</th>
-                        <th>Win Rate (%)</th>
-                    </tr>
-                </thead>
                 <tbody>
-                    ${tableRows}
+                    ${data[0]}
                 </tbody>
             </table>
+            <div class="contenders">Main Card</div>
+            <table>
+                <tbody>
+                    ${mainCardRows}
+                </tbody>
+            </table>
+
+            <div class="footer">${ffl} © 2024</div>
         </body>
         </html>
     `;
