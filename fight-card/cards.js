@@ -65,6 +65,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
       (fight) => `
         <tr>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
+            <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 2']}</td>
             <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
         </tr>
@@ -77,6 +78,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
       (fight) => `
         <tr>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
+            <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 2']}</td>
             <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
         </tr>
@@ -87,6 +89,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
   const championshipRow = `
         <tr>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 1']} <span style="color: #d4af37; font-size: 1.1em;">(C)</span></td>
+            <td style="font-weight: bold; font-size: 1.5em; color: #333;">vs</td>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 2']}</td>
             <td style="font-size: 1.5em; font-weight: bold; color: #333; text-transform: uppercase;">${championship['Weight Class']}</td>
         </tr>
