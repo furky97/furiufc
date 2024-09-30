@@ -172,7 +172,7 @@ async function createTableScreenshot(htmlContent) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setContent(htmlContent);
-  const screenshotPath = path.join(__dirname, `fight-card-${Date.now()}.png`);
+  const screenshotPath = path.join(__dirname, `matches-${Date.now()}.png`);
   await page.screenshot({ path: screenshotPath, fullPage: true });
   await browser.close();
   console.log(`Fight card screenshot saved to ${screenshotPath}`);
