@@ -66,7 +66,7 @@ function generateHTMLTable(data) {
                 font-family: 'Roboto Slab', Arial, sans-serif;
                 margin: 0;
                 padding: 20px;
-                background: linear-gradient(90deg, rgba(245,227,227,1) 0%, rgba(210,214,215,1) 100%);
+                background: linear-gradient(to bottom, #222222 0%, #333333 100%);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -77,7 +77,6 @@ function generateHTMLTable(data) {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-bottom: 20px;
             }
 
             .ffl-header {
@@ -85,7 +84,9 @@ function generateHTMLTable(data) {
                 font-size: 5rem;
                 color: white;
                 font-weight: bold;
+                text-transform: uppercase;
                 text-align: center;
+                text-decoration: underline;
             }
 
             /* Champion card styles */
@@ -93,13 +94,13 @@ function generateHTMLTable(data) {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #fff;
-                color: #333;
+                background-color: #ffffff;
+                color: #000000;
                 padding: 15px 30px;
                 border-radius: 12px;
-                border: 2px solid #ffd700;
-                margin-bottom: 30px;
-                width: 70%;
+                border: 2mm ridge goldenrod;
+                margin-bottom: 40px;
+                width: 60%;
                 max-width: 800px;
                 gap: 20px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -109,27 +110,22 @@ function generateHTMLTable(data) {
             .leaderboard-card {
                 display: flex;
                 align-items: center;
-                background-color: #ffffff;
-                color: #333;
+                background-color: #dddddd;
+                color: #000000;
                 padding: 10px 15px;
                 border-radius: 8px;
-                border: 1px solid #e0e0e0;
-                margin-bottom: 10px;
-                width: 90%;
+                margin-bottom: 4px;
+                width: 70%;
                 max-width: 700px;
                 gap: 20px;
                 transition: box-shadow 0.3s;
             }
 
-            .leaderboard-card:hover {
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-
             .player-position {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 font-weight: bold;
-                background-color: #f0f0f0;
-                color: #333;
+                background-color: darkred;
+                color: white;
                 padding: 10px 15px;
                 border-radius: 20%;
                 text-align: center;
@@ -138,31 +134,40 @@ function generateHTMLTable(data) {
             .champion-card .player-position {
                 background-color: goldenrod;
             }
-
-            .player-name {
-                font-size: 1.4rem;
+            
+            .champion-card .player-name {
+                font-size: 2.5rem;
                 font-weight: bold;
+            }
+            
+            .player-name {
+                font-size: 1.8rem;
                 flex-grow: 1;
-                color: #333;
+                color: #000000;
             }
 
             .player-stat {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                font-size: 1rem;
+                justify-content: space-evenly;
+                font-size: 1.5rem;
             }
 
             .player-stat .label {
-                font-size: 0.8rem;
-                color: #666;
+                font-size: 1rem;
+                color: grey;
                 text-transform: uppercase;
             }
 
             .player-stat .value {
-                font-size: 1.4rem;
+                font-size: 2rem;
                 font-weight: bold;
-                color: #333;
+                color: #000000;
+            }
+            
+            .champion-card .player-stat .value {
+                font-size: 2.5rem;
             }
             
             </style>
