@@ -1,57 +1,39 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
+const {players} = require('./data');
 
 const ffl = '<span>FFL - 008</span>';
-// List of players
-const players = [
-  'Rebell',
-  'Carnalito61',
-  'Zem01',
-  'Poatan209',
-  'ANNOYIING',
-  'Edmir04',
-  'Lahana Turşusu',
-  'Arezmaa',
-  'Simouny',
-  'alpi',
-  'Freezy',
-  'thegame2621',
-  // 'Seyiito',
-  // 'Bronxs_MMA',
-  // 'RushMMA',
-  // 'FuriUFC',
-];
 
 // List of weight classes
 const weightClasses = [
-  'Heavyweight',
-  'Light Heavyweight',
-  'Middleweight',
-  'Welterweight',
-  'Lightweight',
-  'Featherweight',
-  'Bantamweight',
-  // "Flyweight",
-  // "Bantamweight (W)",
-  // "Flyweight (W)",
-  // "Strawweight (W)"
+    'Heavyweight',
+    'Light Heavyweight',
+    'Middleweight',
+    'Welterweight',
+    'Lightweight',
+    'Featherweight',
+    'Bantamweight',
+    "Flyweight",
+    // "Bantamweight (W)",
+    // "Flyweight (W)",
+    // "Strawweight (W)"
 ];
 
 // Championship fight
 const championshipFight = {
-  'Player 1': players[0],
-  'Player 2': players[1],
-  'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
+    'Player 1': players[0],
+    'Player 2': players[1],
+    'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
 };
 
 // Create fight card by excluding championship fight players
 const fightCard = [];
 for (let i = 2; i < players.length; i += 2) {
-  fightCard.push({
-    'Player 1': players[i],
-    'Player 2': players[i + 1],
-    'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
-  });
+    fightCard.push({
+        'Player 1': players[i],
+        'Player 2': players[i + 1],
+        'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
+    });
 }
 
 // Split into Main Card and Prelims
@@ -60,9 +42,9 @@ const prelims = fightCard.slice(4); // Remaining fights for Prelims
 
 // Function to generate HTML content
 function generateHTMLTable(mainCard, prelims, championship) {
-  const mainCardRows = mainCard
-    .map(
-      (fight) => `
+    const mainCardRows = mainCard
+        .map(
+            (fight) => `
         <tr>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
@@ -70,12 +52,12 @@ function generateHTMLTable(mainCard, prelims, championship) {
             <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
         </tr>
     `
-    )
-    .join('');
+        )
+        .join('');
 
-  const prelimRows = prelims
-    .map(
-      (fight) => `
+    const prelimRows = prelims
+        .map(
+            (fight) => `
         <tr>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
@@ -83,10 +65,10 @@ function generateHTMLTable(mainCard, prelims, championship) {
             <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
         </tr>
     `
-    )
-    .join('');
+        )
+        .join('');
 
-  const championshipRow = `
+    const championshipRow = `
         <tr>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 1']} <span style="background-color: #d4af37; color: white; font-size: 1.1em; padding: 0 4px;">C</span></td>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">vs</td>
@@ -95,7 +77,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
         </tr>
     `;
 
-  return `
+    return `
         <html>
         <head>
             <style>
@@ -124,14 +106,14 @@ function generateHTMLTable(mainCard, prelims, championship) {
                 }
 
 	  
-                body { font-family: 'Roboto Slab', Arial, sans-serif; margin: 0; padding: 20px; background-color: #f0f0f0; }
-                table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: white; border-radius: 10px;}
+                body { font-family: 'Roboto Slab', Arial, sans-serif; margin: 0; padding: 40px; background-color: #f0f0f0; }
+                table { width: 100%; margin-top: 5px; background-color: white; border-radius: 10px;}
                 th, td { padding: 15px; text-align: center; }
                 tr:hover { background-color: #eaeaea; }
                 td { font-weight: bold; font-size: 1.2em; }
                 .header { background-color: #333; color: white; text-align: center; padding: 20px; font-size: 2.5em; text-transform: uppercase; font-family: 'Lobster', cursive; font-style: italic; }
-                .title-card { font-weight: bold; font-size: 2.2em; text-align: center; margin-top: 20px; background-color: #cc9900; color: black; padding: 10px; border-radius: 10px;}
-                .main-card { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #cc0000; color: white; padding: 10px; border-radius: 10px;}
+                .title-card { font-weight: bold; font-size: 2.2em; text-align: center; margin-top: 20px; background-color: #cc9900; color: black; padding: 10px; border-radius: 10px; text-transform: uppercase;}
+                .main-card { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #af0000; color: white; padding: 10px; border-radius: 10px;}
                 .prelims-card { font-weight: bold; font-size: 1.5em; text-align: center; margin-top: 20px; background-color: #333; color: white; padding: 10px; border-radius: 10px;}
                 .footer { text-align: center; margin-top: 20px; font-size: 1.2em; color: #333; }
             </style>
@@ -140,7 +122,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
             <div class="header-section">
               <h1 class="ffl-header">${ffl}</h1>
             </div>
-            <div class="title-card">Title Fight</div>
+            <div class="title-card">Championship</div>
             <table>
                 <tbody>
                     ${championshipRow}
@@ -168,13 +150,13 @@ function generateHTMLTable(mainCard, prelims, championship) {
 
 // Function to create and save a screenshot of the table
 async function createTableScreenshot(htmlContent) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.setContent(htmlContent);
-  const screenshotPath = path.join(__dirname, `matches-${Date.now()}.png`);
-  await page.screenshot({ path: screenshotPath, fullPage: true });
-  await browser.close();
-  console.log(`Fight card screenshot saved to ${screenshotPath}`);
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setContent(htmlContent);
+    const screenshotPath = path.join(__dirname, `matches-${Date.now()}.png`);
+    await page.screenshot({path: screenshotPath, fullPage: true});
+    await browser.close();
+    console.log(`Fight card screenshot saved to ${screenshotPath}`);
 }
 
 // Generate HTML and create screenshot

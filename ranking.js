@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
-const data = require('./ranking.json');
+const {rankings} = require('./data');
 
 function generatePlayerCard(player, index) {
     const positionLabel = index === 0 ? `C` : `${index}`;
@@ -204,7 +204,7 @@ function rank(data) {
 }
 
 // Generate HTML table from ranked players
-const rankedPlayers = rank(data);
+const rankedPlayers = rank(rankings);
 const htmlContent = generateHTMLTable(rankedPlayers);
 
 // Function to create and save a screenshot of the table
