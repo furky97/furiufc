@@ -64,9 +64,8 @@ function generateHTMLTable(data) {
 
             body {
                 font-family: 'Roboto Slab', Arial, sans-serif;
-                margin: 0;
                 padding: 20px;
-                background: linear-gradient(to bottom, #222222 0%, #333333 100%);
+                background: linear-gradient(to bottom, #dddddd 0%, #eeeeee 100%);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -80,13 +79,13 @@ function generateHTMLTable(data) {
             }
 
             .ffl-header {
-                font-family: 'Roboto Slab', Arial, sans-serif;
-                font-size: 5rem;
-                color: white;
+                font-family: 'Impact', Arial, sans-serif;
+                font-size: 8rem;
+                color: black;
                 font-weight: bold;
-                text-transform: uppercase;
                 text-align: center;
-                text-decoration: underline;
+                border-bottom: 1mm solid black;
+                padding: 10px 20px;
             }
 
             /* Champion card styles */
@@ -99,7 +98,7 @@ function generateHTMLTable(data) {
                 padding: 15px 30px;
                 border-radius: 12px;
                 border: 2mm ridge goldenrod;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 width: 60%;
                 max-width: 800px;
                 gap: 20px;
@@ -110,12 +109,13 @@ function generateHTMLTable(data) {
             .leaderboard-card {
                 display: flex;
                 align-items: center;
-                background-color: #dddddd;
+                background-color: #ffffff;
                 color: #000000;
                 padding: 10px 15px;
                 border-radius: 8px;
                 margin-bottom: 4px;
                 width: 70%;
+                height: 15%;
                 max-width: 700px;
                 gap: 20px;
                 transition: box-shadow 0.3s;
@@ -174,7 +174,7 @@ function generateHTMLTable(data) {
         </head>
         <body>
             <div class="header-section">
-              <h1 class="ffl-header">Leaderboards</h1>
+              <h1 class="ffl-header">Rangliste</h1>
             </div>
             ${championCard}
             ${otherPlayers}
