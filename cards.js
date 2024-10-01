@@ -85,7 +85,7 @@ function generateHTMLTable(mainCard, prelims, championship) {
                 header-section {
                     display: flex;
                     justify-content: center;
-                    align-items: center;
+                    align-items: start;
                     height: 100vh;
                     background-color: #000; /* Black background */
                 }
@@ -106,8 +106,8 @@ function generateHTMLTable(mainCard, prelims, championship) {
                 }
 
 	  
-                body { font-family: 'Roboto Slab', Arial, sans-serif; margin: 0; padding: 40px; background-color: #f0f0f0; }
-                table { width: 100%; margin-top: 5px; background-color: white; border-radius: 10px;}
+                body { font-family: 'Roboto Slab', Arial, sans-serif; margin: 0; padding: 10px 60px; background: linear-gradient(to bottom, #eeeeee 0%, #ffffff 100%);}
+                table { width: 100%; margin: 0; background-color: white; border-radius: 10px; border: 1px solid #000;}
                 th, td { padding: 15px; text-align: center; }
                 tr:hover { background-color: #eaeaea; }
                 td { font-weight: bold; font-size: 1.2em; }
