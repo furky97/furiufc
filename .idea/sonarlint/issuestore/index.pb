@@ -22,3 +22,14 @@ Q.idea/sonarlint/securityhotspotstore/d/5/d56bdb98e571b7a4f00317488f3588e14b6a03
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+8
+cards.js,4/8/48474d8d121f16ededc3ca2679878655405d7821
+H
+legacy/league-ranking.js,7/5/7551b1471401aec147ca26f109b3b24843b210e8
+F
+legacy/league-match.js,4/4/440b42c9af25f8abf3cf0a99260bfa4bc2e5d8e6
+:
+
+ranking.js,c/7/c729c62906cbbd277b8351fed076ea2ce7232920
+<
+ranking.json,f/2/f264a3f9592fec5007d873454fbaa064553f1f42
