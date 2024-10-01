@@ -60,6 +60,7 @@ function generateHTMLTable(data) {
             
             * {
                 box-sizing: border-box;
+                margin: 0;
             }
 
             body {
@@ -80,11 +81,10 @@ function generateHTMLTable(data) {
 
             .ffl-header {
                 font-family: 'Impact', Arial, sans-serif;
-                font-size: 8rem;
+                font-size: 7rem;
                 color: black;
                 font-weight: bold;
                 text-align: center;
-                border-bottom: 1mm solid black;
                 padding: 10px 20px;
             }
 
