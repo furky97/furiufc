@@ -11,13 +11,13 @@ const rankings = [
     {name: "RushMMA", wins: 2, draws: 0, losses: 3},
     {name: "zFreezy", wins: 2, draws: 0, losses: 4},
     {name: "Seyiito", wins: 2, draws: 0, losses: 4},
-    // {name: "thegame2621", wins: 1, draws: 0, losses: 3},
-    // {name: "Simouny", wins: 1, draws: 0, losses: 3},
-    // {name: "alpi", wins: 1, draws: 0, losses: 5},
-    // {name: "Ronaldinho", wins: 0, draws: 0, losses: 4},
-    // {name: "Atilla", wins: 0, draws: 0, losses: 1},
-    // {name: "Adam", wins: 0, draws: 0, losses: 3},
-    // {name: "AlpiQLF", wins: 0, draws: 0, losses: 1}
+    {name: "thegame2621", wins: 1, draws: 0, losses: 3},
+    {name: "Simouny", wins: 1, draws: 0, losses: 3},
+    {name: "alpi", wins: 1, draws: 0, losses: 5},
+    {name: "Ronaldinho", wins: 0, draws: 0, losses: 4},
+    {name: "Atilla", wins: 0, draws: 0, losses: 1},
+    {name: "Adam", wins: 0, draws: 0, losses: 3},
+    {name: "AlpiQLF", wins: 0, draws: 0, losses: 1}
 ];
 
 const players = [
