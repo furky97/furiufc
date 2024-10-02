@@ -9,15 +9,15 @@ function generatePlayerCard(player, index) {
     <div class="leaderboard-card">
         <div class="player-position">${positionLabel}</div>
         <div class="player-name">${player.Name}</div>
-        <div class="player-stat wins">
+        <div class="player-stat">
             <span class="label">W</span>
             <span class="value">${player.Wins}</span>
         </div>
-        <div class="player-stat losses">
+        <div class="player-stat">
             <span class="label">L</span>
             <span class="value">${player.Losses}</span>
         </div>
-        <div class="player-stat draws">
+        <div class="player-stat">
             <span class="label">D</span>
             <span class="value">${player.Draws}</span>
         </div>
@@ -34,15 +34,15 @@ function generateHTMLTable(data) {
     <div class="champion-card">
         <div class="player-position">C</div>
         <div class="player-name">${champion.Name}</div>
-        <div class="player-stat wins">
+        <div class="player-stat">
             <span class="label">W</span>
             <span class="value">${champion.Wins}</span>
         </div>
-        <div class="player-stat losses">
+        <div class="player-stat">
             <span class="label">L</span>
             <span class="value">${champion.Losses}</span>
         </div>
-        <div class="player-stat draws">
+        <div class="player-stat">
             <span class="label">D</span>
             <span class="value">${champion.Draws}</span>
         </div>
