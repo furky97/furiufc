@@ -64,7 +64,7 @@ function generateHTMLTable(data) {
             }
 
             body {
-                font-family: 'Roboto Slab', Arial, sans-serif;
+                font-family: Courier, monospace;
                 padding: 20px;
                 background: linear-gradient(to bottom, #dddddd 0%, #eeeeee 100%);
                 display: flex;
@@ -112,27 +112,24 @@ function generateHTMLTable(data) {
                 background-color: #ffffff;
                 color: #000000;
                 padding: 10px 15px;
-                border-radius: 8px;
-                margin-bottom: 4px;
+                border: 1px solid #aaaaaa;
                 width: 70%;
-                height: 15%;
+                height: 10%;
                 max-width: 700px;
                 gap: 20px;
                 transition: box-shadow 0.3s;
             }
 
             .player-position {
-                font-size: 2rem;
-                font-weight: bold;
-                background-color: darkred;
-                color: white;
+                font-size: 1.5rem;
+                color: grey;
                 padding: 10px 15px;
-                border-radius: 20%;
                 text-align: center;
             }
             
             .champion-card .player-position {
                 background-color: goldenrod;
+                color: white;
             }
             
             .champion-card .player-name {
@@ -141,7 +138,7 @@ function generateHTMLTable(data) {
             }
             
             .player-name {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
                 flex-grow: 1;
                 color: #000000;
             }
@@ -161,7 +158,7 @@ function generateHTMLTable(data) {
             }
 
             .player-stat .value {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 font-weight: bold;
                 color: #000000;
             }
