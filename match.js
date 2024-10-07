@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const {players} = require('./data');
 
-const ffl = '<span>FFL - 008</span>';
+const ffl = '<span>FFL - 009</span>';
 
 // List of weight classes
 const weightClasses = [
