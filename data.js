@@ -1,24 +1,27 @@
 const rankings = [
     {name: "Zem01", wins: 7, draws: 0, losses: 2},
+    {name: "Lahana Turşusu", wins: 7, draws: 0, losses: 2},
     {name: "Edmir04", wins: 6, draws: 0, losses: 2},
-    {name: "Lahana Turşusu", wins: 6, draws: 0, losses: 2},
     {name: "Rebell", wins: 5, draws: 0, losses: 1},
+    {name: "ANNOYIING", wins: 4, draws: 0, losses: 2},
     {name: "FuriUFC", wins: 3, draws: 0, losses: 1},
-    {name: "ANNOYIING", wins: 3, draws: 0, losses: 2},
-    {name: "Arezmaa", wins: 3, draws: 0, losses: 3},
+    {name: "Arezmaa", wins: 4, draws: 0, losses: 3},
+    {name: "CruqZzy", wins: 1, draws: 0, losses: 0},
+    {name: "zFreezy", wins: 4, draws: 0, losses: 4},
     {name: "Bronxs_MMA", wins: 2, draws: 0, losses: 2},
     {name: "Carnalito61", wins: 1, draws: 0, losses: 1},
-    {name: "zFreezy", wins: 3, draws: 0, losses: 4},
-    {name: "RushMMA", wins: 2, draws: 0, losses: 3},
-    {name: "Simouny", wins: 2, draws: 0, losses: 3},
+    {name: "RushMMA", wins: 2, draws: 0, losses: 4},
+    {name: "Simouny", wins: 2, draws: 0, losses: 4},
     {name: "Seyiito", wins: 2, draws: 0, losses: 4},
     {name: "thegame2621", wins: 1, draws: 0, losses: 4},
     {name: "alpi", wins: 1, draws: 0, losses: 6},
-    {name: "Poatan209", wins: 0, draws: 0, losses: 1},
-    // {name: "AlpiQLF", wins: 0, draws: 0, losses: 1},
-    // {name: "Atilla", wins: 0, draws: 0, losses: 1},
-    // {name: "Adam", wins: 0, draws: 0, losses: 3},
-    // {name: "Ronaldinho", wins: 0, draws: 0, losses: 4}
+    {name: "eren_azz", wins: 0, draws: 0, losses: 1},
+    {name: "mukadderat", wins: 0, draws: 0, losses: 1},
+    {name: "AlpiQLF", wins: 0, draws: 0, losses: 1},
+    {name: "Atilla", wins: 0, draws: 0, losses: 1},
+    {name: "Poatan209", wins: 0, draws: 0, losses: 2},
+    {name: "Adam", wins: 0, draws: 0, losses: 3},
+    {name: "Ronaldinho", wins: 0, draws: 0, losses: 4}
 ];
 
 const players = [
