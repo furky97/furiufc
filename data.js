@@ -1,8 +1,8 @@
 const rankings = [
-    {name: "Zem01", wins: 7, draws: 0, losses: 2},
+    {name: "Zem01", wins: 8, draws: 0, losses: 2},
     {name: "Lahana Turşusu", wins: 7, draws: 0, losses: 2},
-    {name: "Edmir04", wins: 6, draws: 0, losses: 2},
     {name: "Rebell", wins: 5, draws: 0, losses: 1},
+    {name: "Edmir04", wins: 6, draws: 0, losses: 3},
     {name: "ANNOYIING", wins: 4, draws: 0, losses: 2},
     {name: "FuriUFC", wins: 3, draws: 0, losses: 1},
     {name: "Arezmaa", wins: 4, draws: 0, losses: 3},
