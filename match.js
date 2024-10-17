@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const {players} = require('./data');
 
-const ffl = '<span>FFL - 009</span>';
+const ffl = '<span>FFL - 010</span>';
 
 // List of weight classes
 const weightClasses = [
@@ -134,7 +134,6 @@ function generateHTMLTable(mainCard, prelims, championship) {
                     ${mainCardRows}
                 </tbody>
             </table>
-
             <div class="prelims-card">Prelims</div>
             <table>
                 <tbody>
