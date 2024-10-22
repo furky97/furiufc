@@ -1,50 +1,60 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
-const {players} = require('./data');
+const { players } = require('./data');
 
 const ffl = '<span>FFL - 010</span>';
 
 // List of weight classes
 const weightClasses = [
-    'Heavyweight',
-    'Light Heavyweight',
-    'Middleweight',
-    'Welterweight',
-    'Lightweight',
-    'Featherweight',
-    'Bantamweight',
-    "Flyweight",
-    // "Bantamweight (W)",
-    // "Flyweight (W)",
-    // "Strawweight (W)"
+  'Heavyweight',
+  'Light Heavyweight',
+  'Middleweight',
+  'Welterweight',
+  'Lightweight',
+  'Featherweight',
+  'Bantamweight',
+  'Flyweight',
+  // "Bantamweight (W)",
+  // "Flyweight (W)",
+  // "Strawweight (W)"
 ];
 
-// Championship fight
-const championshipFight = {
+function createFightCard() {
+  // Championship fight
+  const championshipFight = {
     'Player 1': players[0],
     'Player 2': players[1],
     'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
-};
+  };
 
-// Create fight card by excluding championship fight players
-const fightCard = [];
-for (let i = 2; i < players.length; i += 2) {
+  // Create fight card by excluding championship fight players
+  const fightCard = [];
+  for (let i = 2; i < players.length; i += 2) {
     fightCard.push({
-        'Player 1': players[i],
-        'Player 2': players[i + 1],
-        'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
+      'Player 1': players[i],
+      'Player 2': players[i + 1],
+      'Weight Class': weightClasses[Math.floor(Math.random() * weightClasses.length)],
     });
+  }
+
+  // Split into Main Card and Prelims
+  const mainCard = fightCard.slice(0, 4); // First 4 fights for Main Card
+  const prelims = fightCard.slice(4); // Remaining fights for Prelims
+
+  return {
+    championshipFight,
+    mainCard,
+    prelims,
+  };
 }
 
-// Split into Main Card and Prelims
-const mainCard = fightCard.slice(0, 4); // First 4 fights for Main Card
-const prelims = fightCard.slice(4); // Remaining fights for Prelims
-
 // Function to generate HTML content
-function generateHTMLTable(mainCard, prelims, championship) {
-    const mainCardRows = mainCard
-        .map(
-            (fight) => `
+function generateHTMLTable() {
+  const { mainCard, prelims, championshipFight } = createFightCard();
+
+  const mainCardRows = mainCard
+    .map(
+      (fight) => `
         <tr>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
@@ -52,12 +62,12 @@ function generateHTMLTable(mainCard, prelims, championship) {
             <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
         </tr>
     `
-        )
-        .join('');
+    )
+    .join('');
 
-    const prelimRows = prelims
-        .map(
-            (fight) => `
+  const prelimRows = prelims
+    .map(
+      (fight) => `
         <tr>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">${fight['Player 1']}</td>
             <td style="font-weight: bold; font-size: 1.1em; color: #333;">vs</td>
@@ -65,19 +75,19 @@ function generateHTMLTable(mainCard, prelims, championship) {
             <td style="text-transform: uppercase;">${fight['Weight Class']}</td>
         </tr>
     `
-        )
-        .join('');
+    )
+    .join('');
 
-    const championshipRow = `
+  const championshipRow = `
         <tr>
-            <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 1']} <span style="background-color: #d4af37; color: white; font-size: 1.1em; padding: 0 4px;">C</span></td>
+            <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championshipFight['Player 1']} <span style="background-color: #d4af37; color: white; font-size: 1.1em; padding: 0 4px;">C</span></td>
             <td style="font-weight: bold; font-size: 1.5em; color: #333;">vs</td>
-            <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championship['Player 2']}</td>
-            <td style="font-size: 1.5em; font-weight: bold; color: #333; text-transform: uppercase;">${championship['Weight Class']}</td>
+            <td style="font-weight: bold; font-size: 1.5em; color: #333;">${championshipFight['Player 2']}</td>
+            <td style="font-size: 1.5em; font-weight: bold; color: #333; text-transform: uppercase;">${championshipFight['Weight Class']}</td>
         </tr>
     `;
 
-    return `
+  return `
         <html>
         <head>
             <style>
@@ -149,15 +159,17 @@ function generateHTMLTable(mainCard, prelims, championship) {
 
 // Function to create and save a screenshot of the table
 async function createTableScreenshot(htmlContent) {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.setContent(htmlContent);
-    const screenshotPath = path.join(__dirname, `matches-${Date.now()}.png`);
-    await page.screenshot({path: screenshotPath, fullPage: true});
-    await browser.close();
-    console.log(`Fight card screenshot saved to ${screenshotPath}`);
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setContent(htmlContent);
+  const screenshotPath = path.join(__dirname, `matches-${Date.now()}.png`);
+  await page.screenshot({ path: screenshotPath, fullPage: true });
+  await browser.close();
+  console.log(`Fight card screenshot saved to ${screenshotPath}`);
 }
 
 // Generate HTML and create screenshot
-const htmlContent = generateHTMLTable(mainCard, prelims, championshipFight);
-createTableScreenshot(htmlContent);
+for (let i = 0; i < 10; i++) {
+  const htmlContent = generateHTMLTable();
+  createTableScreenshot(htmlContent);
+}
