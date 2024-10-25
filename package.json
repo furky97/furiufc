@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv-parser": "^3.0.0",
+    "discord": "^0.8.2",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
     "pandas-js": "^0.2.4",
     "puppeteer": "^23.2.0"
   }
