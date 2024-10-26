@@ -17,7 +17,6 @@ const client = new Client({
 });
 
 // Constants
-const POLL_END_MESSAGE = 'Die Umfrage ist beendet. Hier sind die Teilnehmer:';
 const FFL_CATEGORY_NAME = 'BOT-TEST';
 const NEWS_CHANNEL_ID = '1258350376562855967';
 const NOT_FOUND_CATEGORY_MESSAGE = `Kategorie "${FFL_CATEGORY_NAME}" wurde nicht gefunden.`;
@@ -60,31 +59,28 @@ const getCategoryByName = (guild, categoryName) =>
   guild.channels.cache.find((channel) => channel.type === 4 && channel.name === categoryName);
 const getFFLCategory = (guild) => getCategoryByName(guild, FFL_CATEGORY_NAME);
 const getNewsChannel = (client) => client.channels.cache.get(NEWS_CHANNEL_ID);
-const generateFFLRules = (weightClass) => `FFL Kampfregeln:
-1. 5 Runden Fights.
-2. Nachweis im Chat hier ist Pflicht! Ansonsten wird das Ergebnis nicht gewertet.
-3. Falls euer Gegner länger als 2 Tage nicht antwortet (ffl-xxx-chat) bzw. es unklar ist, wann ihr kämpft => DQ Sieg.
-4. Keine Mirror Matches.
-5. Gewichtsklasse: ${weightClass}`;
+const generateFFLRules = (
+  weightClass
+) => `======================\nFFL Kampfregeln:\n======================\n
+- 5 Runden Fights.
+- Nachweis im Chat hier ist Pflicht! Ansonsten wird das Ergebnis nicht gewertet.
+- Falls euer Gegner länger als 2 Tage nicht antwortet (ffl-xxx-chat) bzw. es unklar ist, wann ihr kämpft => DQ Sieg.
+- Keine Mirror Matches.\n
+======================\nGewichtsklasse: **${weightClass}**\n======================\n`;
 
 // Set up channel permissions
-const getChannelPermissions = (interaction, playerA, playerB) => [
+const getChannelPermissions = (interaction, playerAId, playerBId) => [
   {
     id: interaction.guild.id,
-    deny: [PermissionsBitField.Flags.ViewChannel],
+    allow: [PermissionsBitField.Flags.ViewChannel],
+    deny: [PermissionsBitField.Flags.SendMessages],
   },
   {
-    id: interaction.guild.members.cache.find((member) => member.user.username === playerA)?.id,
+    id: playerAId,
     allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
   },
   {
-    id: interaction.guild.members.cache.find((member) => member.user.username === playerB)?.id,
-    allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
-  },
-  {
-    id: interaction.guild.members.cache.find((member) =>
-      member.permissions.has(PermissionsBitField.Flags.Administrator)
-    )?.id,
+    id: playerBId,
     allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
   },
 ];
@@ -158,20 +154,30 @@ const createMatches = async (interaction, matchesData, fflNumber) => {
   for (let i = 0; i < matchesData.length; i++) {
     const { playerA, playerB, weightclass } = matchesData[i];
     const channelName = `ffl-${fflNumber}-match-${i + 1}`;
+    const members = await interaction.guild.members.fetch();
+    let playerAId = null;
+    let playerBId = null;
+    members.forEach((member) => {
+      if (member.displayName === playerA) {
+        playerAId = member.id;
+      } else if (member.displayName === playerB) {
+        playerBId = member.id;
+      }
+    });
 
     const newChannel = await interaction.guild.channels.create({
       name: channelName,
       type: 0,
       parent: fflCategory.id,
-      topic: `Match zwischen ${playerA} und ${playerB}`,
-      permissionOverwrites: getChannelPermissions(interaction, playerA, playerB),
+      topic: `FFL-${fflNumber} - Match zwischen ${playerA} und ${playerB}`,
+      permissionOverwrites: getChannelPermissions(interaction, playerAId, playerBId),
     });
 
     await newChannel.send(
-      `Willkommen <@${playerA}> und <@${playerB}>! Dies ist euer privater Match-Kanal. Viel Glück!
+      `Willkommen <@${playerAId}> und <@${playerBId}>! Dies ist euer privater Match-Kanal. Viel Glück!
 ${generateFFLRules(weightclass)}
-<@${playerA}>, wen möchtest du bannen?
-<@${playerB}>, wen möchtest du bannen?`
+<@${playerAId}>, wen möchtest du bannen (muss nicht)?
+<@${playerBId}>, wen möchtest du bannen (muss nicht)?`
     );
   }
 };
@@ -191,7 +197,6 @@ client.on('interactionCreate', async (interaction) => {
     const csvAttachment = interaction.options.getAttachment('matches');
     if (!csvAttachment)
       return interaction.followUp('Bitte eine CSV-Datei mit Teilnehmern anhängen.');
-
     const matchesData = await parseCSV(csvAttachment);
     await createMatches(interaction, matchesData, fflNumber);
   }
