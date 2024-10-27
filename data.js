@@ -23,7 +23,7 @@ const rankings = [
   { name: 'alpi', wins: 1, draws: 0, losses: 7 },
   { name: 'pulle30', wins: 0, draws: 0, losses: 1 },
   { name: 'Wasiyamato', wins: 0, draws: 0, losses: 1 },
-  { name: 'TyT-3RROB', wins: 0, draws: 0, losses: 1 },
+  { name: 'TyT-3RR0B', wins: 0, draws: 0, losses: 1 },
   { name: 'Atilla', wins: 0, draws: 0, losses: 1 },
   { name: 'Poatan209', wins: 0, draws: 0, losses: 2 },
   { name: 'AlpiQLF', wins: 0, draws: 0, losses: 2 },

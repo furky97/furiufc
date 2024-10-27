@@ -38,6 +38,12 @@ const commands = [
     .addAttachmentOption((option) =>
       option.setName('matches').setDescription('CSV file with matches').setRequired(true)
     ),
+  new SlashCommandBuilder()
+    .setName('ffl-collect-names')
+    .setDescription('Collect FFL participants')
+    .addStringOption((option) =>
+      option.setName('pollid').setDescription('poll id').setRequired(true)
+    ),
 ].map((command) => command.toJSON());
 
 // Register slash commands when the bot is ready
@@ -133,7 +139,6 @@ const startSurvey = async (interaction, fflNumber) => {
       question: { text: surveyQuestion },
       answers: [{ text: 'Ich', emoji: '🥊' }],
       allowMultiselect: false,
-      // expiresTimestamp: new Date(Date.now() + POLL_DURATION_MS).getTime,
       duration: 48,
       layoutType: PollLayoutType.Default,
     },
@@ -200,6 +205,14 @@ client.on('interactionCreate', async (interaction) => {
       return interaction.followUp('Bitte eine CSV-Datei mit Teilnehmern anhängen.');
     const matchesData = await parseCSV(csvAttachment);
     await createMatches(interaction, matchesData, fflNumber);
+  } else if (commandName === 'ffl-collect-names') {
+    const pollid = interaction.options.getString('pollid');
+    const message = await interaction.channel.messages.fetch(pollid);
+    const voters = await message.poll.answers.at(0).fetchVoters();
+    interaction.channel.send('Die Teilnehmer sind...');
+    voters.forEach((voter) => {
+      interaction.channel.send(`<@${voter.id}>`);
+    });
   }
 });
 
