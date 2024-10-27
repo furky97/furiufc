@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { players } = require('./data');
 
-const ffl = '<span>FFL - 011</span>';
+const ffl = '<span>FFL - 012</span>';
 
 // List of weight classes
 const weightClasses = [
@@ -50,8 +50,8 @@ function createFightCard() {
 }
 
 // Function to generate HTML content
-function generateHTMLTable() {
-  const { mainCard, prelims, championshipFight } = createFightCard();
+function generateHTMLTable(fightcard) {
+  const { mainCard, prelims, championshipFight } = fightcard;
 
   const mainCardRows = mainCard
     .map(
@@ -169,9 +169,9 @@ async function createTableScreenshot(htmlContent) {
   console.log(`Fight card screenshot saved to ${screenshotPath}`);
 }
 
-function generateCsv() {
+function generateCsv(fightcard) {
   let csvContent = 'playerA,playerB,weightclass\n';
-  const { championshipFight, mainCard, prelims } = createFightCard();
+  const { championshipFight, mainCard, prelims } = fightcard;
 
   // Add championship fight
   csvContent += `${championshipFight['Player 1']},${championshipFight['Player 2']},${championshipFight['Weight Class']}\n`;
@@ -186,14 +186,14 @@ function generateCsv() {
     csvContent += `${fight['Player 1']},${fight['Player 2']},${fight['Weight Class']}\n`;
   });
 
-  const csvPath = path.join(__dirname, '/dc-bot/matches.csv');
+  const csvPath = path.join(__dirname, `/dc-bot/csv-matches-${Date.now()}.csv`);
   fs.writeFileSync(csvPath, csvContent);
   console.log(`Fight card CSV saved to ${csvPath}`);
 }
 
-generateCsv();
+
+const fightcard = createFightCard();
+generateCsv(fightcard);
 // Generate HTML and create screenshot
-for (let i = 0; i < 1; i++) {
-  const htmlContent = generateHTMLTable();
-  createTableScreenshot(htmlContent);
-}
+const htmlContent = generateHTMLTable(fightcard);
+createTableScreenshot(htmlContent);

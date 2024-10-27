@@ -17,7 +17,7 @@ const client = new Client({
 });
 
 // Constants
-const FFL_CATEGORY_NAME = 'BOT-TEST';
+const FFL_CATEGORY_NAME = '---------FFL---------';
 const NEWS_CHANNEL_ID = '1258350376562855967';
 const NOT_FOUND_CATEGORY_MESSAGE = `Kategorie "${FFL_CATEGORY_NAME}" wurde nicht gefunden.`;
 
@@ -64,7 +64,7 @@ const generateFFLRules = (
 ) => `======================\nFFL Kampfregeln:\n======================\n
 - 5 Runden Fights.
 - Nachweis im Chat hier ist Pflicht! Ansonsten wird das Ergebnis nicht gewertet.
-- Falls euer Gegner länger als 2 Tage nicht antwortet (ffl-xxx-chat) bzw. es unklar ist, wann ihr kämpft => DQ Sieg.
+- Falls euer Gegner länger als 2 Tage nicht antwortet bzw. es unklar ist, wann ihr kämpft => DQ Sieg.
 - Keine Mirror Matches.\n
 ======================\nGewichtsklasse: **${weightClass}**\n======================\n`;
 
@@ -177,7 +177,8 @@ const createMatches = async (interaction, matchesData, fflNumber) => {
       `Willkommen <@${playerAId}> und <@${playerBId}>! Dies ist euer privater Match-Kanal. Viel Glück!
 ${generateFFLRules(weightclass)}
 <@${playerAId}>, wen möchtest du bannen (muss nicht)?
-<@${playerBId}>, wen möchtest du bannen (muss nicht)?`
+<@${playerBId}>, wen möchtest du bannen (muss nicht)?
+Nach euren Bans, schreibt ihr rein mit welchem Kämpfer ihr spielt.`
     );
   }
 };
