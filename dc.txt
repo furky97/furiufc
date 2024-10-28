@@ -1,6 +1,0 @@
-I want to create a Discord bot for my Esports UFC 5 league channel, which should have following commands
-
-- "/ffl-xxx-register" where xxx is a number that i specify each time. 
-  It should create a channel "ffl-xxx-register" where each user can register himself to participate in a league match via poll (1 day).
-  Only the Admin role can write and manage in this channel. All others can only vote.
-- "/ffl-xxx-start" where the poll participants get listed per comma 
