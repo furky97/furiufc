@@ -1,0 +1,98 @@
+.leaderboards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  .section-header {
+    font-family: 'Impact', Arial, sans-serif;
+    font-size: 5rem;
+    color: var(--header-font-color);
+    margin-bottom: 50px;
+  }
+
+  .champion-card,
+  .leaderboard-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    background-color: var(--primary-bg-color);
+    padding: 10px 15px;
+    &:hover {
+      background: #333333;
+      cursor: pointer;
+    }
+  }
+
+  .champion-card {
+    border: 4px ridge goldenrod;
+    margin-bottom: 30px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .player-position {
+      background-color: goldenrod;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+  }
+
+  .leaderboard-card {
+    border: 1px solid #eeeeee;
+    width: 500px;
+    height: 20%;
+    border-radius: 4px;
+  }
+}
+
+.player-info,
+.stats,
+.player-stat {
+  display: flex;
+  align-items: center;
+}
+
+.player-info {
+  gap: 15px;
+
+  .player-position {
+    font-size: 1.4rem;
+    color: grey;
+    padding: 10px 15px;
+  }
+
+  .player-name {
+    font-size: 1.4rem;
+    color: var(--header-font-color);
+  }
+}
+
+.stats {
+  gap: 20px;
+}
+
+.player-stat {
+  flex-direction: column;
+
+  .label {
+    font-size: 1rem;
+    color: grey;
+  }
+
+  .value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--header-font-color);
+  }
+}
+
+.player-recent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  font-size: 1rem;
+}
