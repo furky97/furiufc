@@ -67,11 +67,12 @@ const getFFLCategory = (guild) => getCategoryByName(guild, FFL_CATEGORY_NAME);
 const getNewsChannel = (client) => client.channels.cache.get(NEWS_CHANNEL_ID);
 const generateFFLRules = (
   weightClass
-) => `======================\nFFL Kampfregeln:\n======================\n
+) => `======================\n❌ FFL Kampfregeln ❌\n======================\n
 - 5 Runden Fights.
-- Nachweis im Chat hier ist Pflicht! Ansonsten wird das Ergebnis nicht gewertet.
+- Nachweis im Chat (Screenshot, Handyfoto) PFLICHT! Ansonsten wird das Ergebnis nicht gewertet.
 - Falls euer Gegner länger als 2 Tage nicht antwortet bzw. es unklar ist, wann ihr kämpft => DQ Sieg.
-- Keine Mirror Matches.\n
+- Keine Mirror Matches.
+- Ein Fighterban gilt für euch beide (z.b. Ban Jon Jones => keiner darf Jon Jones picken)\n
 ======================\nGewichtsklasse: **${weightClass}**\n======================\n\n`;
 
 // Set up channel permissions
@@ -185,7 +186,8 @@ Die Reihenfolge eurer Fighterpicks, ist wie folgt...\n
  - <@${playerAId}>, wen möchtest du bannen (muss nicht)?
  - <@${playerBId}>, wen möchtest du bannen (muss nicht)?
  - <@${playerAId}>, welchen Kämpfer wähltst du?
- - <@${playerBId}>, welchen Kämpfer wähltst du?`
+ - <@${playerBId}>, welchen Kämpfer wähltst du?\n\n
+ Bitte REIHENFOLGE beachten!`
     );
   }
 };
