@@ -25,7 +25,6 @@ const Sidebar = () => {
         <Link icon='home' name='Home'/>
         <Link icon='dashboard' name='Dashboard' />
         <Link icon='person' name='Profile' />
-        <Link icon='dashboard' name='Dashboard' />
       </ul>
     </nav>
   );

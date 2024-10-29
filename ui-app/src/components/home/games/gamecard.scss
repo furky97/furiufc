@@ -3,16 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
-  height: 300px;
+  width: 260px;
+  height: 280px;
   border: 0.5px solid var(--secondary-text-clr);
   border-radius: 1em;
   transition: 300ms ease-in-out;
 
   &:hover {
     cursor: pointer;
-    width: 220px;
-    height: 320px;
+    width: 280px;
+    height: 300px;
     transition: 300ms ease-in-out;
   }
 

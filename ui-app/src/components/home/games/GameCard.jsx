@@ -1,14 +1,20 @@
+import PropTypes from 'prop-types';
 import './gamecard.scss';
 
-const GameCard = () => {
+const GameCard = ({ imgPath, name }) => {
   return (
     <div className='game-card'>
-      <img src='src/assets/games/ufc5.png' alt='test' />
+      <img src={imgPath} alt={name} />
       <div className='game-title'>
-        <h3>UFC 5</h3>
+        <h3>{name}</h3>
       </div>
     </div>
   );
+};
+
+GameCard.propTypes = {
+  imgPath: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default GameCard;

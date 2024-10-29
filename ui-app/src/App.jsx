@@ -10,32 +10,29 @@ const App = () => {
         <div className='container'>
           <h2>🎮 Games</h2>
           <section className='gamecards'>
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
+            <GameCard imgPath='src/assets/games/ufc5.png' name='UFC 5' />
+            <GameCard imgPath='src/assets/games/eafc25.png' name='FC 25' />
+            <GameCard imgPath='src/assets/games/undisputed.png' name='Undisputed' />
+            <GameCard imgPath='src/assets/games/ufc5.png' name='UFC 5' />
+            <GameCard imgPath='src/assets/games/eafc25.png' name='FC 25' />
+            <GameCard imgPath='src/assets/games/undisputed.png' name='Undisputed' /><GameCard imgPath='src/assets/games/ufc5.png' name='UFC 5' />
+            <GameCard imgPath='src/assets/games/eafc25.png' name='FC 25' />
+            <GameCard imgPath='src/assets/games/undisputed.png' name='Undisputed' />
           </section>
         </div>
-        {/* <div className='container'>
-          <h2>Furkan</h2>
-          <p>Test</p>
-        </div>
         <div className='container'>
-          <h2>Furkan</h2>
-          <p>Test</p>
+          <h2>🎮 Games</h2>
+          <section className='gamecards'>
+            <GameCard imgPath='src/assets/games/ufc5.png' name='UFC 5' />
+            <GameCard imgPath='src/assets/games/eafc25.png' name='FC 25' />
+            <GameCard imgPath='src/assets/games/undisputed.png' name='Undisputed' />
+            <GameCard imgPath='src/assets/games/ufc5.png' name='UFC 5' />
+            <GameCard imgPath='src/assets/games/eafc25.png' name='FC 25' />
+            <GameCard imgPath='src/assets/games/undisputed.png' name='Undisputed' /><GameCard imgPath='src/assets/games/ufc5.png' name='UFC 5' />
+            <GameCard imgPath='src/assets/games/eafc25.png' name='FC 25' />
+            <GameCard imgPath='src/assets/games/undisputed.png' name='Undisputed' />
+          </section>
         </div>
-        <div className='container'>
-          <h2>Furkan</h2>
-          <p>Test</p>
-        </div>
-        <div className='container'>
-          <h2>Furkan</h2>
-          <p>Test</p>
-        </div> */}
       </div>
     </main>
   );
