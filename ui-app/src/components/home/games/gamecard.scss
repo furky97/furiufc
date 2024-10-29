@@ -1,0 +1,39 @@
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 300px;
+  border: 0.5px solid var(--secondary-text-clr);
+  border-radius: 1em;
+  transition: 300ms ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    width: 220px;
+    height: 320px;
+    transition: 300ms ease-in-out;
+  }
+
+  img {
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+  }
+
+  .game-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--text-clr);
+    width: 100%;
+    border-radius: 1em;
+    h3 {
+      position: relative;
+      font-weight: 600;
+      color: var(--base-clr);
+    }
+  }
+}

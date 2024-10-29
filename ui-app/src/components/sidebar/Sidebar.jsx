@@ -14,7 +14,7 @@ const Sidebar = () => {
     <nav className={isSidebarOpen ? 'sidebar' : 'sidebar close'}>
       <ul>
         <li>
-          <span className='logo'>FuriUFC</span>
+          <span className='logo'>MatchLeague</span>
           <button
             className={isSidebarOpen ? 'toggle-button' : 'toggle-button rotate'}
             onClick={toggleSidebar}
