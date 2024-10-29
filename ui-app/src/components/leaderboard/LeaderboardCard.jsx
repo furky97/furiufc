@@ -3,9 +3,7 @@ import './leaderboard.scss';
 
 import PropTypes from 'prop-types';
 
-function LeaderboardCard(props) {
-  const { card } = props;
-
+function LeaderboardCard({ card }) {
   return (
     <>
       <div className='player-info'>

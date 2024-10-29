@@ -83,10 +83,7 @@
   }
 
   &.rotate {
-    color: red;
-    svg {
-      rotate: 180deg;
-      transition: rotate 500ms ease;
-    }
+    rotate: 180deg;
+    transition: rotate 500ms ease;
   }
 }
