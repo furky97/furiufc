@@ -6,13 +6,31 @@
   background-color: var(--base-clr);
   border-right: 1px solid var(--line-clr);
 
+  position: sticky;
+  top: 0;
+  align-self: start;
+  transition: 300ms ease-in-out;
+
+  svg {
+    flex-shrink: 0;
+    fill: var(--text-clr);
+  }
+
+  &.close {
+    padding: 5px;
+    width: 50px;
+    overflow: hidden;
+    text-wrap: nowrap;
+  }
+
   ul {
     list-style: none;
 
     li {
       &:first-child {
         display: flex;
-        justify-content: felx-end;
+        justify-content: flex-end;
+        align-items: center;
         margin-bottom: 16px;
         .logo {
           font-weight: 600;
@@ -39,5 +57,36 @@
     display: flex;
     align-items: center;
     gap: 1em;
+  }
+
+  a {
+    span {
+      flex-grow: 1;
+    }
+
+    &:hover {
+      background-color: var(--hover-clr);
+    }
+  }
+}
+
+.toggle-button {
+  margin-left: auto;
+  padding: 1em;
+  border: none;
+  border-radius: 0.5em;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--hover-clr);
+  }
+
+  &.rotate {
+    color: red;
+    svg {
+      rotate: 180deg;
+      transition: rotate 500ms ease;
+    }
   }
 }

@@ -1,12 +1,19 @@
+import { useState } from 'react';
 import './sidebar.scss';
 
 const Sidebar = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  }
+
   return (
-    <nav className='sidebar'>
+    <nav className={isSidebarOpen ? 'sidebar' : 'sidebar close'}>
       <ul>
         <li>
           <span className='logo'>FuriUFC</span>
-          <button className='toggle-button'>
+          <button className={isSidebarOpen ? 'toggle-button': 'toggle-button rotate'} onClick={toggleSidebar}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               height='24px'
