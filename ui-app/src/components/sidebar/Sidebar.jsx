@@ -23,6 +23,7 @@ const Sidebar = () => {
           </button>
         </li>
         <Link icon='home' name='Home'/>
+        <Link icon='explore' name='Explore'/>
         <Link icon='dashboard' name='Dashboard' />
         <Link icon='person' name='Profile' />
       </ul>
