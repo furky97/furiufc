@@ -71,7 +71,8 @@ const generateFFLRules = (
 - 5 Runden Fights.
 - Nachweis im Chat (Screenshot, Handyfoto) PFLICHT! Ansonsten wird das Ergebnis nicht gewertet.
 - Falls euer Gegner länger als 2 Tage nicht antwortet bzw. es unklar ist, wann ihr kämpft => DQ Sieg.
-- Keine Mirror Matches.
+- **KEINE** Mirror Matches.
+- **KEINE** 5 ⭐️ Kämpfer.
 - Ein Fighterban gilt für euch beide (z.b. Ban Jon Jones => keiner darf Jon Jones picken)\n
 ======================\nGewichtsklasse: **${weightClass}**\n======================\n\n`;
 
@@ -182,12 +183,11 @@ const createMatches = async (interaction, matchesData, fflNumber) => {
     await newChannel.send(
       `Willkommen <@${playerAId}> und <@${playerBId}>! Dies ist euer privater Match-Kanal. Viel Glück!
 ${generateFFLRules(weightclass)}
-Die Reihenfolge eurer Fighterpicks, ist wie folgt...\n
- - <@${playerAId}>, wen möchtest du bannen (muss nicht)?
- - <@${playerBId}>, wen möchtest du bannen (muss nicht)?
- - <@${playerAId}>, welchen Kämpfer wähltst du?
- - <@${playerBId}>, welchen Kämpfer wähltst du?\n\n
- Bitte REIHENFOLGE beachten!`
+**BITTE** Reihenfolge unten beachten!\n
+- <@${playerAId}>, wer ist dein *BAN* pick?
+- <@${playerBId}>, wer ist dein *BAN* pick?
+- <@${playerAId}>, welchen *Kämpfer* wähltst du?
+- <@${playerBId}>, welchen *Kämpfer* wähltst du?`
     );
   }
 };
