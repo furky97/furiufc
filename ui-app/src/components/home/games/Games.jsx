@@ -4,7 +4,7 @@ import GameCard from './GameCard';
 
 const Games = ({ games }) => {
   return (
-    <section className='games'>
+    <section>
       <h2>🎮 My Games</h2>
       <div className='gamecards'>
         {games.map((game, key) => (

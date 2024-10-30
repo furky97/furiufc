@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Events from './events/Events';
 import Games from './games/Games';
 import './home.scss';
 
@@ -12,6 +13,7 @@ export const Home = () => {
   return (
     <div className='home'>
       <h1>Home</h1>
+      <Events />
       <Games games={games} />
     </div>
   );
