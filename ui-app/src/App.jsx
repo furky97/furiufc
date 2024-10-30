@@ -1,5 +1,5 @@
+import { Outlet } from 'react-router-dom';
 import './app.scss';
-import Home from './components/home/Home.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     <main>
       <Sidebar />
       <div className='root-container'>
-        <Home />
+        <Outlet />
       </div>
     </main>
   );

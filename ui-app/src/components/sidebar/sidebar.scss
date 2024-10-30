@@ -13,20 +13,9 @@
 
   ul {
     list-style: none;
-
-    li {
-      cursor: pointer;
-
-      &:first-child {
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 30px;
-
-        .logo {
-          font-weight: 800;
-          font-size: x-large;
-        }
-      }
+    .logo {
+      font-weight: 800;
+      font-size: x-large;
     }
   }
 
