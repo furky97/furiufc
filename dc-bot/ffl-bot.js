@@ -17,6 +17,7 @@ const client = new Client({
 });
 
 // Constants
+const FFL_MODERATOR_ROLE_ID = '1293901924894248970';
 const FFL_CATEGORY_NAME = '---------FFL---------';
 const NEWS_CHANNEL_ID = '1258350376562855967';
 const NOT_FOUND_CATEGORY_MESSAGE = `Kategorie "${FFL_CATEGORY_NAME}" wurde nicht gefunden.`;
@@ -89,6 +90,10 @@ const getChannelPermissions = (interaction, playerAId, playerBId) => [
   },
   {
     id: playerBId,
+    allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
+  },
+  {
+    id: FFL_MODERATOR_ROLE_ID,
     allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
   },
 ];
