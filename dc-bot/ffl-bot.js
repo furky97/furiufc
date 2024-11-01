@@ -130,8 +130,8 @@ const startSurvey = async (interaction, fflNumber) => {
     permissionOverwrites: [
       {
         id: interaction.guild.id,
-        // allow: [PermissionsBitField.Flags.ViewChannel],
-        deny: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel],
+        allow: [PermissionsBitField.Flags.ViewChannel],
+        deny: [PermissionsBitField.Flags.SendMessages],
       },
     ],
   });
